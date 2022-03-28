@@ -13,28 +13,16 @@ function MoviePageContetnt() {
   const [movieData, setMovieData] = useState<Array<object>>();
 
   const videosAPI = () => {
-    axios
-      .get(
-        `${
-          process.env.BASE_URL ?? "https://nestjs-movie-theater.herokuapp.com/"
-        }videos/${params.id}`
-      )
-      .then((res) => {
-        movieAPI();
-        setMovieVid(res.data);
-      });
+    axios.get(`${process.env.BASE_URL}videos/${params.id}`).then((res) => {
+      movieAPI();
+      setMovieVid(res.data);
+    });
   };
 
   const movieAPI = () => {
-    axios
-      .get(
-        `${
-          process.env.BASE_URL ?? "https://nestjs-movie-theater.herokuapp.com/"
-        }${params.id}`
-      )
-      .then((res) => {
-        setMovieData([res.data]);
-      });
+    axios.get(`${process.env.BASE_URL}${params.id}`).then((res) => {
+      setMovieData([res.data]);
+    });
   };
 
   useEffect(() => {

@@ -23,9 +23,7 @@ function HomePageContent() {
 
   const bestMovies = () => {
     axios
-      .get(
-        process.env.BASE_URL ?? "https://nestjs-movie-theater.herokuapp.com/"
-      )
+      .get(`${process.env.BASE_URL}`)
       .then((res) => {
         const newArr = res.data.map((obj: any): object => {
           return {
@@ -47,11 +45,7 @@ function HomePageContent() {
 
   const movieSearch = () => {
     axios
-      .get(
-        `${
-          process.env.BASE_URL ?? "https://nestjs-movie-theater.herokuapp.com/"
-        }videos-search/${params.searchWord}`
-      )
+      .get(`${process.env.BASE_URL}videos-search/${params.searchWord}`)
       .then((res) => {
         const newArr = res.data.map((obj: any): object => {
           return {
