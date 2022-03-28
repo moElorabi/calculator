@@ -14,7 +14,11 @@ function MoviePageContetnt() {
 
   const videosAPI = () => {
     axios
-      .get(`https://nestjs-movie-theater.herokuapp.com/videos/${params.id}`)
+      .get(
+        `${
+          process.env.BASE_URL ?? "https://nestjs-movie-theater.herokuapp.com/"
+        }videos/${params.id}`
+      )
       .then((res) => {
         movieAPI();
         setMovieVid(res.data);
@@ -23,7 +27,11 @@ function MoviePageContetnt() {
 
   const movieAPI = () => {
     axios
-      .get(`https://nestjs-movie-theater.herokuapp.com/${params.id}`)
+      .get(
+        `${
+          process.env.BASE_URL ?? "https://nestjs-movie-theater.herokuapp.com/"
+        }${params.id}`
+      )
       .then((res) => {
         setMovieData([res.data]);
       });
