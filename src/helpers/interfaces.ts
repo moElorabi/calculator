@@ -1,7 +1,6 @@
-export interface moviesObject {
-  id: string;
-  poster_path: string;
-  title: string;
-  release_date: string;
-  vote_average: number;
+export interface rowObject {
+  id: number;
+  number: number;
+  disabled: boolean;
+  minusOrPlus: string;
 }
